@@ -1,5 +1,7 @@
 package com.course.course.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -19,6 +21,7 @@ public class User implements Serializable {
     private String password;
 
     @OneToMany(mappedBy = "client") // informa é um pra muitos e que do outro lado está mapeado em client
+    @JsonIgnore // Ignora na chamada pra não dar loop infinito
     private List<Order> orders = new ArrayList<>();
 
     public User() {
