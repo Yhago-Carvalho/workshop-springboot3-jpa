@@ -22,7 +22,7 @@ public enum OrderStatus {
 
     public static OrderStatus valueOff(int code) {
         for (OrderStatus value : OrderStatus.values()) {
-            if (value.equals(code)) {
+            if (value.getCode() == code) {
                 return value;
             }
         }
